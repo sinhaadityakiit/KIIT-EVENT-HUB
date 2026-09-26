@@ -1,0 +1,52 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --kiit-green: #006837;
+  --kiit-gold: #f59e0b;
+  --kiit-dark: #0f172a;
+}
+
+body {
+  color: #f8fafc;
+  background: #090e17;
+  font-feature-settings: "rlig" 1, "calt" 1;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0f172a;
+}
+::-webkit-scrollbar-thumb {
+  background: #1e3a29;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #006837;
+}
+
+/* Glassmorphism Classes */
+.glass-panel {
+  background: rgba(15, 23, 42, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-panel-gold {
+  background: rgba(30, 25, 15, 0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(245, 158, 11, 0.25);
+}
+
+.gradient-kiit-text {
+  background: linear-gradient(135deg, #4ade80 0%, #008444 50%, #f59e0b 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
