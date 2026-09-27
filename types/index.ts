@@ -25,12 +25,26 @@ export interface UserProfile {
   id: string;
   email: string;
   full_name: string;
+  username?: string;
   roll_number?: string;
   school?: string;
   role: UserRole;
   avatar_url?: string;
   phone_number?: string;
+  society_name?: string;
   created_at: string;
+  status?: 'ACTIVE' | 'VERIFIED' | 'SUSPENDED';
+}
+
+export interface DemoUserSession {
+  username: string;
+  name: string;
+  role: UserRole;
+  email: string;
+  rollNumber?: string;
+  school?: string;
+  society?: string;
+  avatarUrl?: string;
 }
 
 export interface Society {
@@ -122,4 +136,65 @@ export interface EventFeedback {
   rating: number;
   comment?: string;
   submitted_at: string;
+}
+
+// Approval Queue Item
+export interface PendingSubmission {
+  id: string;
+  title: string;
+  host: string;
+  hostEmail?: string;
+  category: string;
+  submissionDate: string;
+  eventDate: string;
+  timeSlot?: string;
+  venue: string;
+  capacity?: number;
+  budget?: number;
+  status: 'Pending' | 'Approved' | 'Rejected' | 'Changes Requested';
+  description: string;
+  rejectionReason?: string;
+  changesNote?: string;
+  reviewedAt?: string;
+}
+
+// Vlogs & Reels Types
+export interface VlogItem {
+  id: string;
+  title: string;
+  creator: string;
+  duration: string;
+  category: string;
+  date: string;
+  views: number;
+  likes: number;
+  thumbnail: string;
+  videoUrl?: string;
+  description?: string;
+  isLiked?: boolean;
+}
+
+export interface ReelItem {
+  id: string;
+  title: string;
+  creator: string;
+  category: string;
+  date: string;
+  views: number;
+  likes: number;
+  thumbnail: string;
+  duration?: string;
+  isLiked?: boolean;
+}
+
+// App Notifications
+export interface AppNotification {
+  id: string;
+  title: string;
+  message: string;
+  timestamp: string;
+  read: boolean;
+  type: 'event' | 'approval' | 'system' | 'media';
+  targetRole: UserRole | 'ALL';
+  actionUrl?: string;
 }

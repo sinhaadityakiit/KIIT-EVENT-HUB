@@ -1,22 +1,26 @@
 import { MapPin, Users, CheckCircle, ShieldCheck } from "lucide-react";
 import { MOCK_VENUES } from "@/lib/data/mock-data";
 import { Badge } from "@/components/ui/badge";
+import { DisclaimerBanner } from "@/components/layout/disclaimer-banner";
 
 export default function CampusVenuesPage() {
   return (
     <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 space-y-10">
       {/* Header */}
       <div className="rounded-3xl border border-slate-800 bg-gradient-to-r from-emerald-950 via-slate-900 to-slate-950 p-8 sm:p-10">
-        <div className="max-w-2xl space-y-3">
-          <span className="text-xs font-bold uppercase tracking-wider text-emerald-400">
-            Campus Infrastructure & Booking
+        <div className="max-w-3xl space-y-3">
+          <span className="text-xs font-bold uppercase tracking-wider text-amber-400">
+            Campus Infrastructure Reference (Sample Data)
           </span>
           <h1 className="text-3xl sm:text-4xl font-extrabold text-white">
-            Campus Auditoriums & Halls
+            Campus Auditoriums & Halls (Sample Guide)
           </h1>
           <p className="text-sm text-slate-300">
-            Explore seating capacities, acoustic capabilities, stage dimensions, and booking eligibility for auditoriums across KIIT campuses.
+            Explore simulated seating capacities, acoustic capabilities, and scheduling models for auditoriums across KIIT campuses.
           </p>
+          <div className="pt-2">
+            <DisclaimerBanner variant="subtle" />
+          </div>
         </div>
       </div>
 

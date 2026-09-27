@@ -1,40 +1,56 @@
 import { NextResponse, type NextRequest } from "next/server";
-import { validateKiitEmail } from "./lib/auth/kiit-validator";
-
-const ROLE_PERMISSIONS = {
-  admin: ["ADMIN"],
-  host: ["HOST", "ADMIN"],
-  student: ["STUDENT", "HOST", "ADMIN"],
-} as const;
 
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
-  // 1. Static asset and Next.js internal bypass
+  // 1. Static assets and internal routes bypass
   if (
     pathname.startsWith("/_next") ||
     pathname.startsWith("/api/public") ||
     pathname.includes("/favicon.ico") ||
-    pathname.match(/\.(svg|png|jpg|jpeg|webp)$/)
+    pathname.match(/\.(svg|png|jpg|jpeg|webp|ico|css|js)$/)
   ) {
     return NextResponse.next();
   }
 
-  // 2. Read demo role cookie or header (if using client simulation/session)
-  const roleCookie = request.cookies.get("kiit_demo_role")?.value || "STUDENT";
+  // 2. Read role cookie
+  const roleCookie = request.cookies.get("kiit_demo_role")?.value;
 
   const isProtectedAdmin = pathname.startsWith("/admin");
   const isProtectedHost = pathname.startsWith("/host");
+  const isProtectedStudent = pathname.startsWith("/student");
 
   // 3. Admin path guard
-  if (isProtectedAdmin && !ROLE_PERMISSIONS.admin.includes(roleCookie as any)) {
-    // If not admin, check if user is at least logged in or redirect
-    return NextResponse.redirect(new URL("/unauthorized", request.url));
+  if (isProtectedAdmin) {
+    if (!roleCookie) {
+      const loginUrl = new URL("/login", request.url);
+      loginUrl.searchParams.set("redirect", pathname);
+      return NextResponse.redirect(loginUrl);
+    }
+    if (roleCookie !== "ADMIN") {
+      return NextResponse.redirect(new URL("/unauthorized", request.url));
+    }
   }
 
   // 4. Host path guard
-  if (isProtectedHost && !ROLE_PERMISSIONS.host.includes(roleCookie as any)) {
-    return NextResponse.redirect(new URL("/unauthorized", request.url));
+  if (isProtectedHost) {
+    if (!roleCookie) {
+      const loginUrl = new URL("/login", request.url);
+      loginUrl.searchParams.set("redirect", pathname);
+      return NextResponse.redirect(loginUrl);
+    }
+    if (roleCookie !== "HOST" && roleCookie !== "ADMIN") {
+      return NextResponse.redirect(new URL("/unauthorized", request.url));
+    }
+  }
+
+  // 5. Student path guard (Accessible by Student, Host, Admin if logged in)
+  if (isProtectedStudent) {
+    if (!roleCookie) {
+      const loginUrl = new URL("/login", request.url);
+      loginUrl.searchParams.set("redirect", pathname);
+      return NextResponse.redirect(loginUrl);
+    }
   }
 
   return NextResponse.next();
@@ -44,5 +60,6 @@ export const config = {
   matcher: [
     "/admin/:path*",
     "/host/:path*",
+    "/student/:path*",
   ],
 };

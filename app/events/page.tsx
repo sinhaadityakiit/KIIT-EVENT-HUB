@@ -5,6 +5,7 @@ import { Compass, Sparkles, Filter } from "lucide-react";
 import { EventFilters } from "@/components/events/event-filters";
 import { EventCard } from "@/components/events/event-card";
 import { MOCK_EVENTS } from "@/lib/data/mock-data";
+import { DisclaimerBanner } from "@/components/layout/disclaimer-banner";
 
 export default function EventsExplorerPage() {
   const [searchQuery, setSearchQuery] = React.useState("");
@@ -45,17 +46,20 @@ export default function EventsExplorerPage() {
     <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 space-y-8">
       {/* Header Banner */}
       <div className="relative overflow-hidden rounded-3xl border border-slate-800 bg-gradient-to-r from-emerald-950 via-slate-900 to-slate-950 p-8 sm:p-10">
-        <div className="max-w-2xl space-y-3">
-          <div className="inline-flex items-center gap-2 rounded-full bg-emerald-500/20 px-3 py-1 text-xs font-semibold text-emerald-400 border border-emerald-500/30">
+        <div className="max-w-3xl space-y-3">
+          <div className="inline-flex items-center gap-2 rounded-full bg-amber-500/20 px-3 py-1 text-xs font-semibold text-amber-300 border border-amber-500/30">
             <Compass className="h-3.5 w-3.5" />
-            <span>KIIT University Event Explorer</span>
+            <span>Campus Event Explorer (Sample Demo Project)</span>
           </div>
           <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white">
             Discover Campus Happenings
           </h1>
           <p className="text-sm sm:text-base text-slate-300">
-            Find technical hackathons, cultural acoustic nights, athletic championships, and research symposiums. Instant RSVP with digital passes.
+            Sample prototype showcasing technical hackathons, cultural nights, athletic meets, and seminars. Instant demonstration RSVP with student passes.
           </p>
+          <div className="pt-2">
+            <DisclaimerBanner variant="subtle" />
+          </div>
         </div>
       </div>
 

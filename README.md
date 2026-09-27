@@ -1,6 +1,9 @@
 # KIIT University Event Management Web Platform (KSAC Events Hub)
+> **⚠️ Educational & Demonstration Disclaimer**
+> 
+> **This is an independent student/sample project created for educational and demonstration purposes. It is not an official KIIT website or application, is not affiliated with or endorsed by KIIT, and I do not have authorization from KIIT to represent this as an official platform.**
 
-A modern, high-performance campus event management, ticketing, and governance web application tailored specifically for **KIIT University (Kalinga Institute of Industrial Technology, Bhubaneswar)** and operated under the aegis of the **Student Activity Centre (KSAC, Campus 7)**.
+A modern, high-performance campus event management, ticketing, and governance web prototype modeled for student activities at **KIIT University (Kalinga Institute of Industrial Technology, Bhubaneswar)**.
 
 ---
 

@@ -19,6 +19,8 @@ import { MOCK_VENUES, MOCK_SOCIETIES } from "@/lib/data/mock-data";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { VenueConflictBanner } from "@/components/events/venue-conflict-banner";
+import { addEventSubmission } from "@/lib/data/store";
+import { getClientSession } from "@/lib/auth/demo-session";
 
 export default function NewEventProposalPage() {
   const router = useRouter();
@@ -53,10 +55,27 @@ export default function NewEventProposalPage() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    const session = getClientSession();
+    try {
+      addEventSubmission({
+        title: title || "New Society Event Proposal",
+        host: session?.society || session?.name || "host1",
+        hostEmail: session?.email || "host1@kiit.ac.in",
+        category: category.charAt(0).toUpperCase() + category.slice(1).toLowerCase(),
+        eventDate: eventDate,
+        timeSlot: `${startTime} - ${endTime}`,
+        venue: selectedVenue?.name || "Campus 6 Auditorium",
+        capacity: parseInt(maxCapacity, 10) || 500,
+        budget: parseInt(budgetEstimate, 10) || 200000,
+        description: description || "Detailed student society event proposal awaiting KSAC clearance.",
+      });
+    } catch (err) {
+      console.error("Error adding proposal", err);
+    }
     setSubmitted(true);
     setTimeout(() => {
-      router.push("/host/dashboard");
-    }, 2000);
+      router.push("/host/approvals");
+    }, 1800);
   };
 
   return (

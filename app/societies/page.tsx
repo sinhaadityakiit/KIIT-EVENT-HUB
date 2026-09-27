@@ -2,22 +2,26 @@ import Link from "next/link";
 import { Users, ExternalLink, Calendar, Award } from "lucide-react";
 import { MOCK_SOCIETIES, MOCK_EVENTS } from "@/lib/data/mock-data";
 import { Button } from "@/components/ui/button";
+import { DisclaimerBanner } from "@/components/layout/disclaimer-banner";
 
 export default function SocietiesDirectoryPage() {
   return (
     <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 space-y-10">
       {/* Header */}
       <div className="rounded-3xl border border-slate-800 bg-gradient-to-r from-emerald-950 via-slate-900 to-slate-950 p-8 sm:p-10">
-        <div className="max-w-2xl space-y-3">
-          <span className="text-xs font-bold uppercase tracking-wider text-emerald-400">
-            Student Life & Leadership
+        <div className="max-w-3xl space-y-3">
+          <span className="text-xs font-bold uppercase tracking-wider text-amber-400">
+            Student Life & Leadership (Sample Profiles)
           </span>
           <h1 className="text-3xl sm:text-4xl font-extrabold text-white">
-            Recognized KIIT Societies & Clubs
+            Sample Directory of KIIT Societies & Clubs
           </h1>
           <p className="text-sm text-slate-300">
-            Discover student-led technical communities, music guilds, dramatics troupes, and social societies under the aegis of the Student Activity Centre (KSAC).
+            Educational demonstration showcasing student-led technical communities, music guilds, dramatics troupes, and social societies.
           </p>
+          <div className="pt-2">
+            <DisclaimerBanner variant="subtle" />
+          </div>
         </div>
       </div>
 

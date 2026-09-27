@@ -3,15 +3,15 @@
 import * as React from "react";
 import Link from "next/link";
 import { notFound, useParams } from "next/navigation";
-import { 
-  Calendar, 
-  MapPin, 
-  Clock, 
-  Users, 
-  Share2, 
-  CheckCircle, 
-  Sparkles, 
-  Ticket, 
+import {
+  Calendar,
+  MapPin,
+  Clock,
+  Users,
+  Share2,
+  CheckCircle,
+  Sparkles,
+  Ticket,
   ArrowLeft,
   User,
   ShieldCheck,
@@ -23,6 +23,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { QrTicketPass } from "@/components/tickets/qr-ticket-pass";
 import { Registration } from "@/types";
+import { DisclaimerBanner } from "@/components/layout/disclaimer-banner";
 
 export default function EventDetailPage() {
   const params = useParams();
@@ -50,7 +51,7 @@ export default function EventDetailPage() {
   const handleRsvp = () => {
     const student = MOCK_USERS.student;
     const randomHex = Math.random().toString(16).substring(2, 6).toUpperCase();
-    const ticketCode = `KIIT-${event.category.substring(0, 4)}-${student.rollNumber || "21051982"}-${randomHex}`;
+    const ticketCode = `KIIT-${event.category.substring(0, 4)}-${student.roll_number || "21051982"}-${randomHex}`;
 
     const newReg: Registration = {
       id: `reg-${Date.now()}`,
@@ -204,12 +205,12 @@ export default function EventDetailPage() {
           <div className="sticky top-24 rounded-3xl border border-slate-700/80 bg-slate-900/80 p-6 backdrop-blur-xl shadow-2xl space-y-6">
             <div className="space-y-2">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-semibold text-slate-400">Entry Fee</span>
-                <Badge variant="gold">KIIT Student Exclusive</Badge>
+                <span className="text-xs font-semibold text-slate-400">Entry</span>
+                <Badge variant="gold">Sample Demo Event</Badge>
               </div>
               <div className="flex items-baseline gap-2">
                 <span className="text-3xl font-extrabold text-white">FREE</span>
-                <span className="text-xs text-slate-400">with active @kiit.ac.in ID</span>
+                <span className="text-xs text-slate-400">with demo @kiit.ac.in account</span>
               </div>
             </div>
 
@@ -228,7 +229,7 @@ export default function EventDetailPage() {
                 <MapPin className="h-4 w-4 text-amber-400 shrink-0 mt-0.5" />
                 <div>
                   <p className="font-semibold text-white">{event.venue?.name}</p>
-                  <p className="text-slate-400">{event.venue?.campus}, KIIT University</p>
+                  <p className="text-slate-400">{event.venue?.campus}, KIIT Campus Reference</p>
                 </div>
               </div>
               <div className="flex items-start gap-2.5 pt-2 border-t border-slate-800/60">
@@ -252,13 +253,13 @@ export default function EventDetailPage() {
                   onClick={handleRsvp}
                 >
                   <Ticket className="h-5 w-5 mr-2 text-slate-950" />
-                  1-Click RSVP & Get QR Ticket
+                  1-Click RSVP & Get Sample QR Ticket
                 </Button>
               ) : (
                 <div className="space-y-2">
                   <div className="flex items-center gap-2 rounded-xl bg-emerald-950/80 border border-emerald-600/80 p-3 text-emerald-300 text-xs font-semibold">
                     <CheckCircle className="h-4 w-4 text-emerald-400 shrink-0" />
-                    <span>RSVP Confirmed! Digital Pass Generated.</span>
+                    <span>Sample RSVP Confirmed! Digital Pass Generated.</span>
                   </div>
                   <Button
                     variant="primary"
@@ -272,8 +273,12 @@ export default function EventDetailPage() {
               )}
               <p className="text-center text-[11px] text-slate-400 flex items-center justify-center gap-1">
                 <ShieldCheck className="h-3.5 w-3.5 text-emerald-400" />
-                Instant confirmation to your student email
+                Demonstration pass generated instantly
               </p>
+            </div>
+            
+            <div className="pt-3 border-t border-slate-800/80">
+              <DisclaimerBanner variant="subtle" />
             </div>
           </div>
         </div>

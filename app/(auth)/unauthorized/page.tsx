@@ -1,6 +1,7 @@
 import Link from "next/link";
-import { ShieldAlert, ArrowLeft, Mail } from "lucide-react";
+import { ShieldAlert, ArrowLeft, RefreshCw } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { DisclaimerBanner } from "@/components/layout/disclaimer-banner";
 
 export default function UnauthorizedPage() {
   return (
@@ -13,14 +14,17 @@ export default function UnauthorizedPage() {
         <div className="space-y-2">
           <h1 className="text-2xl font-bold text-white tracking-tight">Access Restricted (403)</h1>
           <p className="text-xs text-slate-300 leading-relaxed">
-            Your current account does not have sufficient role privileges to access this area.
+            Your simulated account does not have sufficient role privileges to access this area.
           </p>
         </div>
 
         <div className="rounded-2xl bg-slate-950/80 p-4 border border-slate-800 text-left text-xs space-y-2 text-slate-400">
-          <p className="text-slate-300 font-semibold">Role Requirements:</p>
-          <p>• <strong>Host Studio:</strong> Restricted to designated student society leads & faculty coordinators.</p>
-          <p>• <strong>Admin Portal:</strong> Restricted to Student Activity Centre (KSAC) administrators.</p>
+          <p className="text-slate-300 font-semibold">Demo Role Matrix:</p>
+          <p>• <strong>Host Studio:</strong> Accessible to simulated Host & Admin accounts.</p>
+          <p>• <strong>Admin Portal:</strong> Accessible to simulated Admin accounts only.</p>
+          <p className="text-[11px] text-amber-300 pt-1">
+            💡 Tip: In this prototype, you can instantly test other roles using the <strong>Role Switcher</strong> pill in the top navigation bar!
+          </p>
         </div>
 
         <div className="pt-2 flex flex-col gap-2">
@@ -30,12 +34,16 @@ export default function UnauthorizedPage() {
               Return to Campus Events Portal
             </Button>
           </Link>
-          <a href="mailto:ksac@kiit.ac.in" className="inline-block">
-            <Button variant="ghost" size="sm" className="w-full text-xs text-slate-400">
-              <Mail className="h-3.5 w-3.5 mr-1.5" />
-              Contact KSAC for Role Elevation (ksac@kiit.ac.in)
+          <Link href="/login">
+            <Button variant="secondary" size="sm" className="w-full text-xs">
+              <RefreshCw className="h-3.5 w-3.5 mr-1.5" />
+              Switch Demo Account on Login Screen
             </Button>
-          </a>
+          </Link>
+        </div>
+
+        <div className="pt-2 border-t border-slate-800/80">
+          <DisclaimerBanner variant="subtle" />
         </div>
       </div>
     </div>

@@ -14,12 +14,13 @@ import {
 import { Button } from "@/components/ui/button";
 import { EventCard } from "@/components/events/event-card";
 import { MOCK_EVENTS, MOCK_SOCIETIES, MOCK_VENUES } from "@/lib/data/mock-data";
+import { DisclaimerBanner } from "@/components/layout/disclaimer-banner";
 
 export default function HomePage() {
   const featuredEvents = MOCK_EVENTS.filter((e) => e.status === "APPROVED").slice(0, 3);
 
   return (
-    <div className="space-y-20 pb-20">
+    <div className="space-y-16 pb-20">
       {/* Hero Section */}
       <section className="relative overflow-hidden pt-12 pb-20 lg:pt-20 lg:pb-28 border-b border-slate-800/80 bg-gradient-to-b from-slate-950 via-[#07130c] to-slate-950">
         {/* Glow Spheres */}
@@ -28,9 +29,9 @@ export default function HomePage() {
 
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
           {/* University KSAC Pill */}
-          <div className="inline-flex items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-950/40 px-4 py-1.5 text-xs font-semibold text-emerald-400 backdrop-blur-md mb-6 shadow-sm">
-            <span className="flex h-2 w-2 rounded-full bg-emerald-400 animate-ping"></span>
-            <span>Student Activity Centre (KSAC) • Campus 7</span>
+          <div className="inline-flex items-center gap-2 rounded-full border border-amber-500/30 bg-amber-950/40 px-4 py-1.5 text-xs font-semibold text-amber-300 backdrop-blur-md mb-6 shadow-sm">
+            <span className="flex h-2 w-2 rounded-full bg-amber-400 animate-ping"></span>
+            <span>Educational Sample Project • Unofficial Demonstration</span>
           </div>
 
           {/* Main Headline */}
@@ -43,7 +44,7 @@ export default function HomePage() {
 
           {/* Subtitle */}
           <p className="mx-auto mt-6 max-w-2xl text-base sm:text-lg text-slate-300 leading-relaxed">
-            Discover flagship hackathons, electrifying cultural fests, technical masterclasses, and sports tournaments across 25+ campuses. One-click RSVP with your official <span className="font-mono text-emerald-400">@kiit.ac.in</span> ID.
+            Sample interactive prototype modeling campus hackathons, cultural fests, technical masterclasses, and sports tournaments across campuses. One-click demonstration RSVP with student <span className="font-mono text-emerald-400">@kiit.ac.in</span> accounts.
           </p>
 
           {/* CTA Buttons */}
@@ -74,7 +75,7 @@ export default function HomePage() {
             </div>
             <div className="rounded-2xl border border-slate-800/80 bg-slate-900/60 p-4 backdrop-blur-md">
               <p className="text-3xl font-extrabold text-amber-400">30,000+</p>
-              <p className="text-xs text-slate-400 mt-1">Active KIITians</p>
+              <p className="text-xs text-slate-400 mt-1">Simulated KIITians</p>
             </div>
             <div className="rounded-2xl border border-slate-800/80 bg-slate-900/60 p-4 backdrop-blur-md">
               <p className="text-3xl font-extrabold text-purple-400">100%</p>
@@ -82,6 +83,11 @@ export default function HomePage() {
             </div>
           </div>
         </div>
+      </section>
+
+      {/* Prominent Educational Notice */}
+      <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <DisclaimerBanner variant="card" />
       </section>
 
       {/* Featured Events Section */}
@@ -96,7 +102,7 @@ export default function HomePage() {
               Featured University Events
             </h2>
             <p className="text-sm text-slate-400 mt-1">
-              Top events endorsed and approved by KIIT Student Activity Centre
+              Sample events modeled after university student activity initiatives
             </p>
           </div>
           <Link

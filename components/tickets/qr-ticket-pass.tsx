@@ -51,12 +51,12 @@ export function QrTicketPass({ registration }: QrTicketPassProps) {
               KIIT
             </div>
             <div>
-              <h2 className="text-sm font-bold tracking-tight">KIIT Student Activity Centre</h2>
-              <p className="text-[10px] text-emerald-100">Official Campus Event Admission Pass</p>
+              <h2 className="text-sm font-bold tracking-tight">KSAC Events Concept</h2>
+              <p className="text-[10px] text-amber-200">Sample Event Pass (Educational Demo • Unofficial)</p>
             </div>
           </div>
           <Badge variant="gold" className="uppercase font-mono text-[10px]">
-            {registration.status}
+            {registration.status} (DEMO)
           </Badge>
         </div>
 
@@ -144,7 +144,7 @@ export function QrTicketPass({ registration }: QrTicketPassProps) {
           </p>
           <div className="mt-1 flex items-center gap-1 text-[10px] text-slate-500 font-medium">
             <ShieldCheck className="h-3 w-3 text-emerald-600" />
-            <span>Cryptographically Verified Pass</span>
+            <span>Sample Verified Pass (Educational Demo)</span>
           </div>
         </div>
       </div>
@@ -155,10 +155,17 @@ export function QrTicketPass({ registration }: QrTicketPassProps) {
           <Printer className="h-4 w-4 mr-1.5" />
           Print / Save PDF
         </Button>
-        <Button variant="primary" size="sm" onClick={() => alert("Digital Ticket saved to KIIT student profile!")} className="flex-1">
+        <Button variant="primary" size="sm" onClick={() => alert("Digital Ticket saved to student profile (Demo)!")} className="flex-1">
           <Download className="h-4 w-4 mr-1.5" />
           Offline Pass
         </Button>
+      </div>
+
+      {/* Unofficial Disclaimer Footer */}
+      <div className="px-6 pb-4 pt-1 text-center">
+        <p className="text-[10px] text-slate-500 leading-tight">
+          Sample demonstration pass. Not an official KIIT admission pass. For educational evaluation only.
+        </p>
       </div>
     </div>
   );

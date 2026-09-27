@@ -15,11 +15,11 @@ export function Footer() {
               <span className="font-bold text-white tracking-tight text-lg">KSAC Events Hub</span>
             </div>
             <p className="text-xs text-slate-400 leading-relaxed">
-              Official university event management and ticketing ecosystem operated by the Student Activity Centre (KSAC), KIIT Deemed to be University, Bhubaneswar.
+              Independent student sample project created for educational and demonstration purposes. Designed to model campus event discovery, ticketing, and scheduling workflows.
             </p>
-            <div className="flex items-center gap-2 text-xs text-emerald-400">
-              <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse"></span>
-              Domain Restricted: @kiit.ac.in
+            <div className="flex items-center gap-2 text-xs text-amber-400/90">
+              <span className="h-2 w-2 rounded-full bg-amber-400 animate-pulse"></span>
+              Demonstration Mode (Educational Project)
             </div>
           </div>
 
@@ -47,7 +47,7 @@ export function Footer() {
 
           {/* Contact Details */}
           <div>
-            <h4 className="text-xs font-semibold uppercase tracking-wider text-slate-200 mb-3">Student Activity Centre</h4>
+            <h4 className="text-xs font-semibold uppercase tracking-wider text-slate-200 mb-3">Campus Reference Info</h4>
             <ul className="space-y-2.5 text-xs">
               <li className="flex items-start gap-2">
                 <MapPin className="h-4 w-4 text-emerald-400 shrink-0 mt-0.5" />
@@ -55,23 +55,31 @@ export function Footer() {
               </li>
               <li className="flex items-center gap-2">
                 <Mail className="h-4 w-4 text-emerald-400 shrink-0" />
-                <span>ksac@kiit.ac.in</span>
-              </li>
-              <li className="flex items-center gap-2">
-                <Phone className="h-4 w-4 text-emerald-400 shrink-0" />
-                <span>+91 674 2725113 / 2741998</span>
+                <span>ksac@kiit.ac.in (Reference Only)</span>
               </li>
               <li className="flex items-center gap-2">
                 <Globe className="h-4 w-4 text-emerald-400 shrink-0" />
-                <span>kiit.ac.in</span>
+                <span>kiit.ac.in (Official University Site)</span>
               </li>
             </ul>
           </div>
         </div>
 
-        <div className="mt-8 pt-8 border-t border-slate-900 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4">
-          <p>© 2026 Kalinga Institute of Industrial Technology (KIIT). All rights reserved.</p>
-          <p className="text-slate-400 font-medium">Developed for KIIT Student Activity Centre (KSAC)</p>
+        {/* Disclaimer & Copyright */}
+        <div className="mt-8 pt-8 border-t border-slate-900 space-y-4">
+          <div className="rounded-2xl border border-amber-500/20 bg-slate-900/80 p-4 text-xs text-slate-300">
+            <p className="font-semibold text-amber-300 mb-1 flex items-center gap-1.5">
+              <span>Important Notice & Disclaimer</span>
+            </p>
+            <p className="leading-relaxed text-slate-400">
+              This is an independent student/sample project created for educational and demonstration purposes. It is not an official KIIT website or application, is not affiliated with or endorsed by KIIT, and I do not have authorization from KIIT to represent this as an official platform.
+            </p>
+          </div>
+
+          <div className="flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4">
+            <p>© 2026 Independent Educational Demonstration Project.</p>
+            <p className="text-slate-400 font-medium">Unofficial Sample Implementation</p>
+          </div>
         </div>
       </div>
     </footer>
